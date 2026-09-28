@@ -11,4 +11,9 @@ interface LinkedList {
     void deleteLast();
     void deleteAfter(int index);
     void print();
+    public Object get(int index);
+    public int indexOf(Object targetData);
+    public boolean remove(Object targetData);
+    public void printReverse();
+    public Object[] toArray();
 }
