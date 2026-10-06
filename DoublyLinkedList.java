@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class DoublyLinkedList implements LinkedList{
     private Node2P head,tail;
     int size=0;
@@ -125,11 +127,25 @@ public class DoublyLinkedList implements LinkedList{
         // TODO digunakan untuk mengembalikan data pada index ke-i dimulai dari head. Head memiliki index 0
         return null;
     }
+    
     @Override
     public int indexOf(Object targetData) {
-        // TODO digunakan mencari kemunculan pertama targetData pada linked list dan mengembalikan indeksnya. Indeks dari head adalah 0. Jika tidak ada targetData pada linked list, kembalikan nilai -1 
-        return 0;
+        // Haidar
+        int count = 0;
+        Node2P n = head;
+
+        while(n != null){
+            if(Objects.equals(n.data, targetData)){
+                return count;
+            }
+
+            n = n.next;
+            count++;
+        }
+
+        return -1;
     }
+
     @Override
     public void printReverse() {
         // TODO digunakan untuk mencetak data pada linked list dengan urutan terbalik, dari tail ke head.
