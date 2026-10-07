@@ -149,12 +149,16 @@ public class SinglyLinkedList implements LinkedList{
     @Override
     public boolean remove(Object targetData) {       
         // Haidar 
-        if(head.data == targetData){
+        if(head == null){
+            return false;
+        }
+
+        if(Objects.equals(head.data, targetData)){
             deleteFirst();
             return true;
         }
         
-        if(tail.data == targetData){
+        if(Objects.equals(tail.data, targetData)){
             deleteLast();
             return true;
         }

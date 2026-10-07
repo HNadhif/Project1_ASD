@@ -154,14 +154,52 @@ public class DoublyLinkedList implements LinkedList{
 
     @Override
     public void printReverse() {
-        // TODO digunakan untuk mencetak data pada linked list dengan urutan terbalik, dari tail ke head.
+        // Haidar
+        if(tail == null){
+            return;
+        }
         
+        Node2P n = tail;
+        while(n != null){
+            System.out.print(n.data + " ");
+            n = n.prev;
+        }
+
+        System.out.println();
     }
+
     @Override
     public boolean remove(Object targetData) {
-        // TODO digunakan untuk mencari dan menghapus node dengan data=targetData pada linked list serta mengembalikan nilai True jika berhasil, dan False jika targetData tidak ada di linkedList
+        // Haidar
+        if(head == null){
+            return false;
+        }
+        
+        if(Objects.equals(head.data, targetData)){
+            deleteFirst();
+            return true;
+        }
+        
+        if(Objects.equals(tail.data, targetData)){
+            deleteLast();
+            return true;
+        }
+        
+        Node2P current = head.next;
+        while(current.next != null) {
+            if(Objects.equals(current.data, targetData)) {
+                current.prev.next = current.next;
+                current.next.prev = current.prev;
+                size--;
+                return true;
+            }
+
+            current = current.next;
+        }
+
         return false;
     }
+    
     @Override
     public Object[] toArray() {
         // TODO digunakan untuk mendapatkan keseluruhan data pada node-node di linked list dalam bentuk array. Data-data pada array disusun secara urut mulai dari head sampai dengan tail.
